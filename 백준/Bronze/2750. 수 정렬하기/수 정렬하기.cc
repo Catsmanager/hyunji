@@ -1,31 +1,25 @@
-#include <iostream>
-#include<string>
+#include<iostream>
+#include<vector>
+#include<algorithm>
 using namespace std;
+
+
+
 int main()
 {
-	int n;
-	cin >> n;
-	int z;
-	int arr[1000];
-	for (int i = 0; i < n; i++)
+	vector<int> n;
+	int k;
+	cin >> k;
+	for (int i = 0; i < k; i++)
 	{
-		cin >> arr[i];
+		int temp;
+		cin >> temp;
+		n.push_back(temp);
 	}
-	for (int i = n; i > 1; i--)
+	sort(n.begin(), n.end());
+	for (int z = 0; z < k; z++)
 	{
-		for (int j = 0; j + 1 < i; j++)
-		{
-			if (arr[j] > arr[j + 1])
-			{
-				z = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = z;
-
-			}
-		}
-
-
+		cout << n[z]<< endl;
 	}
-	for (int i = 0; i < n; i++)
-		cout << arr[i] << endl;
+
 }
