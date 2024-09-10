@@ -1,52 +1,67 @@
 #include<iostream>
-#include<string>
-#include<queue>
+#include<vector>
 using namespace std;
-int main() 
+/* 큐 구현하기
+* 1. push x안 출력
+* 2, pop 출력
+* 3. size출력
+* 4. empty출력
+* 5. front출
+* 6. back 츨
+* 
+*/
+
+
+int main()
 {
-	queue<int>x;
 	int n;
 	cin >> n;
-	int num=0;
-	string me;
+	vector<int>que;
 	for (int i = 0; i < n; i++)
 	{
-		cin >> me;
-		if (me == "push")
+		string str;
+		cin >> str;
+		if (str == "push")
 		{
+			int num;
 			cin >> num;
-			x.push(num);
+			que.push_back(num);
+
 		}
-		if (me == "pop")
+		if (str == "pop")
 		{
-			if (x.empty())
-				cout << -1 << '\n';
+			if (que.size() == 0)
+				cout << "-1" << endl;
 			else
 			{
-				cout << x.front() << '\n';
-				x.pop();
+				cout << que.front() << endl;
+				que.erase(que.begin());
 			}
 		}
-
-		if (me == "size")
-			cout << x.size() << '\n';
-		if (me == "empty")
-			cout << x.empty() << '\n';
-		if (me == "front")
+		if (str == "size")
 		{
-			if (x.empty())
-				cout << -1 << '\n';
-			else
-				cout << x.front() << '\n';
+			cout << que.size() << endl;
 		}
-
-		if (me == "back")
+		if (str == "empty")
 		{
-			if (x.empty())
-				cout << -1 << '\n';
+			if (que.size() == 0)
+				cout << "1" << endl;
 			else
-				cout << x.back() << '\n';
+				cout << "0" << endl;
 		}
-
+		if (str == "front")
+		{
+			if (que.size() == 0)
+				cout << "-1" << endl;
+			else
+				cout << que.front() << endl;
+		}
+		if (str == "back")
+		{
+			if (que.size() == 0)
+				cout << "-1" << endl;
+			else
+				cout << que.back() << endl;
+		}
 	}
 }
